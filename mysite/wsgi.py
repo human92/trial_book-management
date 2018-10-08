@@ -18,3 +18,4 @@ application = get_wsgi_application()
 # whitenoiseでのエラー回避（4.0より仕様変更）
 # from whitenoise.django import DjangoWhiteNoise
 # application = DjangoWhiteNoise(application)
+# commit test
