@@ -78,14 +78,15 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 #     }
 # }
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mysql',  
+        'NAME': 'book_management',  
         'USER': 'root',  
         'PASSWORD': 'human92',  
-        'HOST': 'localhost', 
-        'PORT': '3306', 
+        'HOST': '', 
+        'PORT': '', 
     }
 }
 
