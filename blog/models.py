@@ -1,10 +1,17 @@
 from django.db import models
 from django.utils import timezone
 
+class BookCategory(models.Model):
+    c_name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.c_name
+
+
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.PROTECT)
     title = models.CharField(max_length=200)
-    category = models.CharField(max_length=30)
+    category = models.ForeignKey(BookCategory, on_delete=models.PROTECT)
     views_number = models.IntegerField()
     text = models.TextField()
     created_date = models.DateTimeField(
