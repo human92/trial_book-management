@@ -5,6 +5,7 @@
     <div class="post">
         <div class="date">
             <p>published: {{ post.published_date }}</p>
+            <p>last_updated: {{ post.last_updated_date }}</p>
         </div>
         <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
         <p>{{ post.category }}</p>
