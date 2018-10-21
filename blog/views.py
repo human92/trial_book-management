@@ -11,6 +11,8 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    post.views_number += 1
+    post.save()
     return render(request, 'blog/post_detail.html', {'post': post})
 
 def post_new(request):
