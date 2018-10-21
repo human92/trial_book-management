@@ -33,7 +33,7 @@ You can manage your favorite books with category, book image and number of acces
 
 ## DB
 
-*MySQL 8.0.12
+* MySQL 8.0.12
 
 # Setup
 
