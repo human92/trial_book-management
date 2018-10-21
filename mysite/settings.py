@@ -145,7 +145,7 @@ ROOT_PATH = os.path.dirname(__file__)
 
 # 絶対Path参照は今後修正要
 STATICFILES_DIRS = [
-    'C:/Users/Kai Kodama/djangogirls/static'
+    'C:/Users/Kai Kodama/WEB_application/book_django/static'
 ]
 
 try:
