@@ -129,6 +129,11 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
+#Media files(Images)
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # Tutorialでの追加分
 import dj_database_url
 

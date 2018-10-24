@@ -8,6 +8,14 @@ class BookCategory(models.Model):
         return self.c_name
 
 
+class BookImage(models.Model):
+        img_name = models.CharField(max_length=50)
+        img = models.ImageField(upload_to='blog')
+
+        def __str__(self):
+                return self.img_name
+
+
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.PROTECT)
     title = models.CharField(max_length=200)
@@ -15,6 +23,9 @@ class Post(models.Model):
     views_number = models.PositiveIntegerField(
             default=0, blank=True, null=True)
     text = models.TextField()
+    img_name = models.CharField(max_length=50, null=True)
+    img = models.ImageField(upload_to='blog', null=True)
+    #imag_id = models.ForeignKey(BookImage, on_delete=models.PROTECT, null=True)
     created_date = models.DateTimeField(
              default=timezone.now)
     published_date = models.DateTimeField(
