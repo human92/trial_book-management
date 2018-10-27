@@ -3,14 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <title>BOOK MANAGEMANT TOOL</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
-        <script src="{% static 'js/vendor/jquery-1.10.2.min.js' %}"></script>
-        <script src="{% static 'js/vendor/jquery-ui-1.10.3.custom.min.js' %}"></script>
-        <script src="{% static 'js/materialize.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
     </head>
     <body>
@@ -22,6 +20,11 @@
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
+                        <script>
+                            $(document).ready(function(){
+                            $('select').formSelect();
+                            });
+                        </script>
                     {% block content %}
                     {% endblock %}
                 </div>
