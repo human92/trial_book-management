@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0005_auto_20181022_2058'),
+        ('book', '0005_auto_20181022_2058'),
     ]
 
     operations = [
@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='post',
             name='img',
-            field=models.ImageField(null=True, upload_to='blog'),
+            field=models.ImageField(null=True, upload_to='book'),
         ),
         migrations.AddField(
             model_name='post',

@@ -16,7 +16,7 @@ class Post(models.Model):
             default=0, blank=True, null=True)
     text = models.TextField()
     img_name = models.CharField(max_length=50, null=True)
-    img = models.ImageField(upload_to='blog', null=True)
+    img = models.ImageField(upload_to='book', null=True)
     created_date = models.DateTimeField(
              default=timezone.now)
     published_date = models.DateTimeField(

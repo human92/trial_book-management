@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0003_auto_20181021_1448'),
+        ('book', '0003_auto_20181021_1448'),
     ]
 
     operations = [
@@ -22,6 +22,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='post',
             name='imag_id',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='blog.BookImage'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='book.BookImage'),
         ),
     ]
