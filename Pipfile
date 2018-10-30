@@ -27,6 +27,7 @@ six = "==1.11.0"
 virtualenv = "==16.0.0"
 virtualenv-clone = "==0.4.0"
 whitenoise = "==4.0"
+djangorestframework==3.9.0
 
 [dev-packages]
 
