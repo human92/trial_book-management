@@ -1,4 +1,4 @@
-# book_vue
+# front_vue
 
 ## Project setup
 ```

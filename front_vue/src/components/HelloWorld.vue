@@ -80,7 +80,6 @@
           </a>
         </v-layout>
       </v-flex>
-      <v-btn color="success">Information</v-btn>
     </v-layout>
   </v-container>
 </template>
@@ -94,7 +93,7 @@
           href: 'https://github.com/vuetifyjs/vuetify-loader'
         },
         {
-          text: 'github--',
+          text: 'github',
           href: 'https://github.com/vuetifyjs/vuetify'
         },
         {
