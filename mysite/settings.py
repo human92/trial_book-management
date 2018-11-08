@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
+    'corsheaders',
     'book',
 ]
 
@@ -47,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -149,6 +151,8 @@ DEBUG = True
 
 ROOT_PATH = os.path.dirname(__file__)
 
+#Vue.jsの実装に向け追加
+CORS_ORIGIN_ALLOW_ALL = True
 
 # 絶対Path参照は今後修正要
 STATICFILES_DIRS = [

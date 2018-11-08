@@ -6,7 +6,23 @@
         </p>
     </h2>
 </template>
+
 <script>
+import axios from 'axios'
+
+export default {
+    name: 'BookIndex',
+    methods: {
+        fetchData () {
+            axios.get('http://localhost:8000/api/posts/').then(res => {
+                console.log(res)
+            })
+        },
+    },
+    mounted () {
+        this.fetchData()
+    },
+}
 </script>
 <style>
 </style>
