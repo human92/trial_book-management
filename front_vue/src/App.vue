@@ -16,18 +16,32 @@
     </v-toolbar>
 
     <v-content>
-      <HelloWorld/>
+      <!-- <HelloWorld/> -->
+      <bookpost/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+// import HelloWorld from './components/HelloWorld'
+import bookpost from './components/book_post'
+
+// export default {
+//   name: 'App',
+//   components: {
+//     HelloWorld
+//   },
+//   data () {
+//     return {
+//       //
+//     }
+//   }
+// }
 
 export default {
-  name: 'App',
+  name: 'Book',
   components: {
-    HelloWorld
+    bookpost
   },
   data () {
     return {
