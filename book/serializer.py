@@ -9,4 +9,4 @@ class BookCategorySelializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ('title', 'text', 'category', 'img_name', 'img')
+        fields = ('title', 'text', 'category', 'img_name', 'img', 'created_date')

@@ -1,9 +1,9 @@
 <template>
     <h2>
-        Hello, world!!
-        <p>
-            I wiil develop this html
-        </p>
+        Hello, World
+            <ul>
+                {{posts}}
+            </ul>
     </h2>
 </template>
 
@@ -12,10 +12,16 @@ import axios from 'axios'
 
 export default {
     name: 'BookIndex',
+    data(){
+        return{
+            posts: [],
+        }
+    },
     methods: {
         fetchData () {
-            axios.get('http://localhost:8000/api/posts/').then(res => {
-                console.log(res)
+            axios.get('http://localhost:8000/api/posts/').then(response => {
+                // console.log(response)
+                (this.posts = response.data.results)
             })
         },
     },
