@@ -1,9 +1,9 @@
 <template>
     <h2>
         Hello, World
-            <ul>
-                {{posts}}
-            </ul>
+            <p>
+                {{ posts }}
+            </p>
     </h2>
 </template>
 
@@ -14,19 +14,13 @@ export default {
     name: 'BookIndex',
     data(){
         return{
-            posts: [],
+            posts: null
         }
     },
-    methods: {
-        fetchData () {
-            axios.get('http://localhost:8000/api/posts/').then(response => {
-                // console.log(response)
-                (this.posts = response.data.results)
-            })
-        },
-    },
-    mounted () {
-        this.fetchData()
+    mounted (){
+        axios
+            .get('http://localhost:8000/api/posts/')
+            .then(response => (this.posts = response.data))
     },
 }
 </script>
