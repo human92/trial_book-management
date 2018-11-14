@@ -19,7 +19,8 @@ export default {
     name: 'BookIndex',
     data(){
         return{
-            posts: []
+            posts: [],
+            category: []
         }
     },
     mounted (){
@@ -31,6 +32,9 @@ export default {
                 this.errored = true
             })
             .finally(() => this.loading = false)
+        axios
+            .get('http://127.0.0.1:8000/api/book_category/')
+            .then(response => (console.log(response)))
     },
 }
 </script>
