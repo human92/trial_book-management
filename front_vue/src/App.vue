@@ -8,23 +8,22 @@
       <v-spacer></v-spacer>
       <v-btn
         flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="/new_post"
         target="_blank"
       >
-        <span class="mr-2">Latest Release</span>
+        <span class="mr-2">New Post</span>
       </v-btn>
     </v-toolbar>
 
     <v-content>
-      <!-- <HelloWorld/> -->
-      <bookpost/>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld'
-import bookpost from './components/book_post'
+// import booklist from './components/book_list'
 
 // export default {
 //   name: 'App',
@@ -38,15 +37,18 @@ import bookpost from './components/book_post'
 //   }
 // }
 
-export default {
-  name: 'Book',
-  components: {
-    bookpost
-  },
-  data () {
-    return {
-      //
-    }
-  }
-}
+// export default {
+//   name: 'Book',
+//   components: {
+//     booklist
+//   },
+//   data () {
+//     return {
+//       //
+//     }
+//   }
+// }
 </script>
+
+<style>
+</style>
