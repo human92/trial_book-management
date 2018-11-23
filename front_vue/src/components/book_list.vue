@@ -1,6 +1,7 @@
 <template>
     <v-app>
-        <h1>Posted Book</h1>
+        <v-cantainer>
+            <h1>Posted Book</h1>
             <div id='post_list'>
                     <v-flex xs8  v-for="post in posts" :key="post.id">
                         <h2>{{post.title}}</h2>
@@ -14,6 +15,7 @@
                             </div>
                     </v-flex>
             </div>
+        </v-cantainer>
     </v-app>
 </template>
 
