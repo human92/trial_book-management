@@ -28,7 +28,7 @@
                             ></v-textarea>
                             <v-text-field
                             label="Created date"
-                            v-model="p_date"
+                            v-model="today"
                             prepend-icon="event"
                             disabled
                             ></v-text-field>
@@ -71,7 +71,7 @@
                             </div>
                             <v-spacer></v-spacer>
                             <v-btn large color="#BDBDBD">Cancell</v-btn>
-                            <v-btn large color="primary">Post</v-btn>
+                            <v-btn v-on:click="createPost" large color="primary">Post</v-btn>
                         </div>
                 </v-flex>
             </v-layout>
@@ -81,16 +81,20 @@
 
 <script>
 import axios from 'axios'
-// import moment from 'moment'
+import moment from 'moment'
 
 export default {
-    name: 'BookCategory',
+    name: 'BookCategory_get',
     data(){
         return{
+            title:[],
             book_category: [],
+            text: [],
+            today: moment().toISOString().substr(0, 10),
             p_date: new Date().toISOString().substr(0, 10),
-            today: [],
-            menu: false
+            menu: false,
+            image_name: [],
+            image: []
         }
     },
     mounted (){
@@ -103,7 +107,26 @@ export default {
             })
             .finally(() => this.loading = false)
     },
+    methods: {
+        createPost: function(){
+            axios
+                .post('http://127.0.0.1:8000/api/posts/',{
+                    author: 1,
+                    category: this.book_category,
+                    title: this.title,
+                    text: this.text,
+                    imgName: this.image_name,
+                    img: this.image,
+                    createdDate: this.today,
+                    publishedDate: this.p_date
+                })
+                .then(response => {
+                    console.log(response.data)
+                });
+        }
+    }
 }
+
 </script>
 
 <style>
