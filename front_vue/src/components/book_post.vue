@@ -13,13 +13,16 @@
                             label="title"
                             required
                             ></v-text-field>
+                            <span>title: {{title}}</span>
                             <v-select
                             v-bind:items="book_category"
+                            v-model="book_category"
                             label="book category"
                             item-value="id"
                             item-text="cName"
                             required
                             ></v-select>
+                            <span>Selected: {{book_category}}</span>
                             <v-textarea
                             box
                             name="text"
@@ -28,7 +31,7 @@
                             ></v-textarea>
                             <v-text-field
                             label="Created date"
-                            v-model="today"
+                            v-model="today.toISOString().substr(0, 10)"
                             prepend-icon="event"
                             disabled
                             ></v-text-field>
@@ -65,13 +68,13 @@
                                 ></v-text-field>
                                 <v-text-field 
                                 label="Select Image" 
-                                v-model='imageName' 
                                 prepend-icon='attach_file'
                                 ></v-text-field>
                             </div>
                             <v-spacer></v-spacer>
                             <v-btn large color="#BDBDBD">Cancell</v-btn>
                             <v-btn v-on:click="createPost" large color="primary">Post</v-btn>
+                            <span>P_date: {{p_date}}</span>
                         </div>
                 </v-flex>
             </v-layout>
@@ -87,13 +90,14 @@ export default {
     name: 'BookCategory_get',
     data(){
         return{
-            title:[],
+            title:"",
             book_category: [],
-            text: [],
-            today: moment().toISOString().substr(0, 10),
+            selected_category:"",
+            text: "",
+            today: moment(),
             p_date: new Date().toISOString().substr(0, 10),
             menu: false,
-            image_name: [],
+            image_name: "",
             image: []
         }
     },
@@ -109,16 +113,17 @@ export default {
     },
     methods: {
         createPost: function(){
+            
             axios
                 .post('http://127.0.0.1:8000/api/posts/',{
                     author: 1,
-                    category: this.book_category,
+                    category: this.selected_category,
                     title: this.title,
                     text: this.text,
                     imgName: this.image_name,
                     img: this.image,
                     createdDate: this.today,
-                    publishedDate: this.p_date
+                    publishedDate: moment.utc(this.p_date).format()
                 })
                 .then(response => {
                     console.log(response.data)

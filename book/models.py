@@ -14,8 +14,8 @@ class Post(models.Model):
         views_number = models.PositiveIntegerField(
                 default=0, blank=True, null=True)
         text = models.TextField()
-        img_name = models.CharField(max_length=50, null=True)
-        img = models.ImageField(upload_to='book', null=True)
+        img_name = models.CharField(max_length=50, blank = True, null=True)
+        img = models.ImageField(upload_to='book', blank = True, null=True)
         created_date = models.DateTimeField(
                 default=timezone.now)
         published_date = models.DateTimeField(
