@@ -14,6 +14,7 @@
                             required
                             ></v-text-field>
                             <span>title: {{title}}</span>
+                            <!-- 改善部 -->
                             <v-select
                             v-bind:items="book_category"
                             v-model="selected_category"
@@ -22,8 +23,7 @@
                             item-text="cName"
                             required
                             ></v-select>
-                            <span>Selected: {{selected_category}}</span>
-                            <span>Selected: {{book_category}}</span>
+                            <!-- 改善部 -->
                             <v-textarea
                             box
                             name="text"
