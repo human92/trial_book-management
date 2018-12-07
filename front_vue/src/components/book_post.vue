@@ -16,12 +16,13 @@
                             <span>title: {{title}}</span>
                             <v-select
                             v-bind:items="book_category"
-                            v-model="book_category"
+                            v-model="selected_category"
                             label="book category"
                             item-value="id"
                             item-text="cName"
                             required
                             ></v-select>
+                            <span>Selected: {{selected_category}}</span>
                             <span>Selected: {{book_category}}</span>
                             <v-textarea
                             box
@@ -74,7 +75,6 @@
                             <v-spacer></v-spacer>
                             <v-btn large color="#BDBDBD">Cancell</v-btn>
                             <v-btn v-on:click="createPost" large color="primary">Post</v-btn>
-                            <span>P_date: {{p_date}}</span>
                         </div>
                 </v-flex>
             </v-layout>
@@ -113,7 +113,6 @@ export default {
     },
     methods: {
         createPost: function(){
-            
             axios
                 .post('http://127.0.0.1:8000/api/posts/',{
                     author: 1,
