@@ -23,6 +23,7 @@
                             item-text="cName"
                             required
                             ></v-select>
+                            <span>Select_category: {{selected_category}}</span>
                             <!-- 改善部 -->
                             <v-textarea
                             box
