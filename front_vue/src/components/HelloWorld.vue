@@ -80,8 +80,11 @@
           </a>
         </v-layout>
       </v-flex>
-      <v-btn color="success">Information</v-btn>
+      <v-btn color="info">Info</v-btn>
     </v-layout>
+    <h2>
+      this script is a just sample one
+    </h2>
   </v-container>
 </template>
 
@@ -94,7 +97,7 @@
           href: 'https://github.com/vuetifyjs/vuetify-loader'
         },
         {
-          text: 'github--',
+          text: 'github',
           href: 'https://github.com/vuetifyjs/vuetify'
         },
         {
