@@ -74,7 +74,7 @@
                                 ></v-text-field>
                             </div>
                             <v-spacer></v-spacer>
-                            <v-btn large color="#BDBDBD">Cancell</v-btn>
+                            <v-btn v-on:click="test_code" large color="#BDBDBD">Cancell</v-btn>
                             <v-btn v-on:click="createPost" large color="primary">Post</v-btn>
                         </div>
                 </v-flex>
@@ -92,14 +92,14 @@ export default {
     data(){
         return{
             title:"",
-            book_category: [],
+            book_category: "",
             selected_category:"",
             text: "",
             today: moment(),
             p_date: new Date().toISOString().substr(0, 10),
             menu: false,
             image_name: "",
-            image: []
+            image: ""
         }
     },
     mounted (){
@@ -114,10 +114,14 @@ export default {
     },
     methods: {
         createPost: function(){
+            var original_category = this.book_category
+            var selected_id = this.selected_category
+            var post_data = original_category.filter(x => x.id === selected_id)
+            
             axios
                 .post('http://127.0.0.1:8000/api/posts/',{
                     author: 1,
-                    category: this.selected_category,
+                    category: post_data,
                     title: this.title,
                     text: this.text,
                     imgName: this.image_name,
@@ -128,7 +132,13 @@ export default {
                 .then(response => {
                     console.log(response.data)
                 });
-        }
+        },
+        // test_code: function(){
+        //     var test_category = this.book_category
+        //     var test_selected = this.selected_category
+        //     var test = test_category.filter(x => x.id === test_selected)
+        //     console.log(test);
+        // }
     }
 }
 
