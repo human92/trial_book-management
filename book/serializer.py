@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Post, BookCategory
 from django.contrib.auth.models import User
+import json
 
 class UserSelializer(serializers.ModelSerializer):
     class Meta:

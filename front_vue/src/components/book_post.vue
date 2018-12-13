@@ -117,11 +117,16 @@ export default {
             var original_category = this.book_category
             var selected_id = this.selected_category
             var post_data = original_category.filter(x => x.id === selected_id)
+            var post_data = post_data.map(x => x.cName)
+            var post_data = post_data.join('')
+            var json = {
+                cName: post_data
+            }
             
             axios
                 .post('http://127.0.0.1:8000/api/posts/',{
                     author: 1,
-                    category: post_data,
+                    category: json,
                     title: this.title,
                     text: this.text,
                     imgName: this.image_name,
@@ -133,12 +138,19 @@ export default {
                     console.log(response.data)
                 });
         },
-        // test_code: function(){
-        //     var test_category = this.book_category
-        //     var test_selected = this.selected_category
-        //     var test = test_category.filter(x => x.id === test_selected)
-        //     console.log(test);
-        // }
+        test_code: function(){
+            var test_category = this.book_category
+            var test_selected = this.selected_category
+            var test = test_category.filter(x => x.id === test_selected)
+            var test = test.map(x => x.cName)
+            // var test = JSON.stringify(test);
+            var test = test.join('')
+            var json = {
+                cName: test
+            }
+            // var json = JSON.stringify( json )
+            console.log(json);
+        }
     }
 }
 
