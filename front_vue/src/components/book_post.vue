@@ -13,8 +13,6 @@
                             label="title"
                             required
                             ></v-text-field>
-                            <span>title: {{title}}</span>
-                            <!-- 改善部 -->
                             <v-select
                             v-bind:items="book_category"
                             v-model="selected_category"
@@ -23,10 +21,9 @@
                             item-text="cName"
                             required
                             ></v-select>
-                            <span>Select_category: {{selected_category}}</span>
-                            <!-- 改善部 -->
                             <v-textarea
                             box
+                            v-model="text"
                             name="text"
                             label="text"
                             value=""
@@ -74,7 +71,7 @@
                                 ></v-text-field>
                             </div>
                             <v-spacer></v-spacer>
-                            <v-btn v-on:click="test_code" large color="#BDBDBD">Cancell</v-btn>
+                            <v-btn large color="#BDBDBD">Cancell</v-btn>
                             <v-btn v-on:click="createPost" large color="primary">Post</v-btn>
                         </div>
                 </v-flex>
@@ -99,7 +96,7 @@ export default {
             p_date: new Date().toISOString().substr(0, 10),
             menu: false,
             image_name: "",
-            image: ""
+            image: null
         }
     },
     mounted (){
@@ -117,10 +114,13 @@ export default {
             var original_category = this.book_category
             var selected_id = this.selected_category
             var post_data = original_category.filter(x => x.id === selected_id)
-            var post_data = post_data.map(x => x.cName)
-            var post_data = post_data.join('')
+            var post_name = post_data.map(x => x.cName)
+            var post_id = post_data.map(x => x.id)
+            var post_name = post_name.join('')
+            var post_id = Number(post_id)
             var json = {
-                cName: post_data
+                id: post_id, 
+                cName: post_name
             }
             
             axios
@@ -137,19 +137,6 @@ export default {
                 .then(response => {
                     console.log(response.data)
                 });
-        },
-        test_code: function(){
-            var test_category = this.book_category
-            var test_selected = this.selected_category
-            var test = test_category.filter(x => x.id === test_selected)
-            var test = test.map(x => x.cName)
-            // var test = JSON.stringify(test);
-            var test = test.join('')
-            var json = {
-                cName: test
-            }
-            // var json = JSON.stringify( json )
-            console.log(json);
         }
     }
 }
