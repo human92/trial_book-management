@@ -13,8 +13,6 @@
                             label="title"
                             required
                             ></v-text-field>
-                            <span>title: {{title}}</span>
-                            <!-- 改善部 -->
                             <v-select
                             v-bind:items="book_category"
                             v-model="selected_category"
@@ -23,9 +21,9 @@
                             item-text="cName"
                             required
                             ></v-select>
-                            <!-- 改善部 -->
                             <v-textarea
                             box
+                            v-model="text"
                             name="text"
                             label="text"
                             value=""
@@ -91,14 +89,14 @@ export default {
     data(){
         return{
             title:"",
-            book_category: [],
+            book_category: "",
             selected_category:"",
             text: "",
             today: moment(),
             p_date: new Date().toISOString().substr(0, 10),
             menu: false,
             image_name: "",
-            image: []
+            image: null
         }
     },
     mounted (){
@@ -113,10 +111,22 @@ export default {
     },
     methods: {
         createPost: function(){
+            var original_category = this.book_category
+            var selected_id = this.selected_category
+            var post_data = original_category.filter(x => x.id === selected_id)
+            var post_name = post_data.map(x => x.cName)
+            var post_id = post_data.map(x => x.id)
+            var post_name = post_name.join('')
+            var post_id = Number(post_id)
+            var json = {
+                id: post_id, 
+                cName: post_name
+            }
+            
             axios
                 .post('http://127.0.0.1:8000/api/posts/',{
                     author: 1,
-                    category: this.selected_category,
+                    category: json,
                     title: this.title,
                     text: this.text,
                     imgName: this.image_name,
