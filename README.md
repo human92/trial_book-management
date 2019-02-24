@@ -11,9 +11,9 @@ You can manage your favorite books with category easily.
 2. Edit your fovorite books information.
 
 **book list image**
-#![md](img/list_screen.PNG)#
+![md](img/list_screen.PNG)
 **post screen  image**
-#![md](img/post_screen.PNG)#
+![md](img/post_screen.PNG)
 
 # Dependency
 
@@ -21,13 +21,16 @@ You can manage your favorite books with category easily.
 
 ### Server-Side
 * Python == 3.6.6 (Anaconda Custome)
-## Required package
+
+### Required package for python
+
 Please check Pipfile
 
 ### Front-Side
+
 * Vue == 3.0.5
 
-## DB
+### DB
 
 * MySQL 8.0.12
 
