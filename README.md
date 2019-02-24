@@ -1,41 +1,37 @@
 # trial_book-management
 ====
 
-Book management application by Django.
-For my practice, I have developed simple book_management tool by django and MySQL.
-You can manage your favorite books with category, book image and number of access easily.
+Book management application with modern web browser.
+For my practice, I have developed simple book_management tool by Vue.js, django and MySQL.
+You can manage your favorite books with category easily.
 
 ## What you can do
 
 1. Register and list your favotrite books.
 2. Edit your fovorite books information.
-3. Know the most popular books by numnber of access.
 
-
-**image is under construction**
-
-#![md](img/Django_画面の仕様案_v01.png)#
+**book list image**
+#![md](img/list_screen.PNG)#
+**post screen  image**
+#![md](img/post_screen.PNG)#
 
 # Dependency
 
 ## Script
 
+### Server-Side
 * Python == 3.6.6 (Anaconda Custome)
-
 ## Required package
+Please check Pipfile
 
-* dj-database-url==0.5.0
-* Django==2.1
-* gunicorn==19.9.0
-* psycopg2-binary==2.7.5
-* pytz==2018.5
-* whitenoise==4.0
+### Front-Side
+* Vue == 3.0.5
 
 ## DB
 
 * MySQL 8.0.12
 
-# Setup
+# Setup(Server-Side)
 
 **This application is developed by Python Anaconda custome, and development environment is based on Windows.**
 
@@ -77,9 +73,14 @@ python manage.py runserver
 http://127.0.0.1:8000/
 ```
 
-# Usage
-
-**under construction**
+# Setup(Front-Side)
+0. Install Vue-CLI ⇒ [Vue-CLI Install](https://cli.vuejs.org/guide/installation.html)
+1. Setup Vuetify ⇒ [Vuetify Setup](https://vuetifyjs.com/ja/getting-started/quick-start)
+2. Download all directory from my repogitory.
+3. Access following address.
+```
+http://127.0.0.1:8080/
+```
 
 # Licence
 This software is released under the MIT License, see LICENSE.
@@ -91,5 +92,6 @@ This software is released under the MIT License, see LICENSE.
 
 # References
 * [Django Girls Tutorial](https://tutorial.djangogirls.org/ja/)
-* [Django official Document](https://www.djangoproject.com/)
-* [@okoppe](https://qiita.com/okoppe8/items/66a8747cf179a538355b)
+* [Django Official Document](https://www.djangoproject.com/)
+* [Vue-CLI Official Document](https://cli.vuejs.org/)
+* [Vuetify Official Document](https://vuetifyjs.com/ja/)
