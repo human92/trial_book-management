@@ -8,3 +8,5 @@ db.sqlite3
 media
 .vscode
 migrations
+requirements.txt
+runtime.txt
