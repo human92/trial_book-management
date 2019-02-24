@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
-# from django.conf.urls.static import static
 from book.urls import router as book_router
 from book.views import BookCategoryViewSet, PostViewSet
 
@@ -25,5 +24,3 @@ urlpatterns = [
     url(r'^api/', include(book_router.urls)),
 ]
 
-# if settings.DEBUG:
-#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

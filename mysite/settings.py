@@ -75,20 +75,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'book_management',  
-        'USER': 'root',  
-        'PASSWORD': 'human92',  
+        'NAME': 'your db name',  
+        'USER': 'your user name',  
+        'PASSWORD': 'your password',  
         'HOST': '', 
         'PORT': '', 
     }
@@ -155,8 +148,6 @@ ROOT_PATH = os.path.dirname(__file__)
 CORS_ORIGIN_ALLOW_ALL = True
 
 REST_FRAMEWORK = {
-    # 'PAGE_SIZE': 100,
-    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'DEFAULT_RENDERER_CLASSES': (
         'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
@@ -170,7 +161,7 @@ REST_FRAMEWORK = {
 
 # 絶対Path参照は今後修正要
 STATICFILES_DIRS = [
-    'C:/Users/Kai Kodama/WEB_application/book_django/static'
+    '/static'
 ]
 
 try:
